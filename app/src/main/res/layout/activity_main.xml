@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.riven.dell.yunifangdemo.activity.MainActivity"
+    android:orientation="vertical">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        >
+        <com.riven.dell.yunifangdemo.view.MainViewPager
+            android:id="@+id/main_viewPager"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            />
+    </ScrollView>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/gray_8f"/>
+
+    <RadioGroup
+        android:id="@+id/main_radioGroup"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="10"
+        android:background="#fff"
+        android:gravity="center"
+        android:orientation="horizontal">
+
+        <RadioButton
+            android:id="@+id/main_rBtn_home"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:checked="true"
+            android:button="@null"
+            android:drawableTop="@drawable/main_home_selector"
+            android:gravity="center_horizontal"
+            android:textSize="12sp"
+            android:text="首页"
+            android:layout_weight="1"/>
+
+        <RadioButton
+            android:id="@+id/main_rBtn_classify"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:button="@null"
+            android:drawableTop="@drawable/main_classify_selector"
+            android:gravity="center_horizontal"
+            android:textSize="12sp"
+            android:text="分类"
+            android:layout_weight="1"/>
+
+        <RadioButton
+            android:id="@+id/main_rBtn_shopping"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:button="@null"
+            android:drawableTop="@drawable/main_shopping_selector"
+            android:gravity="center_horizontal"
+            android:textSize="12sp"
+            android:text="购物车"
+            android:layout_weight="1"/>
+
+        <RadioButton
+            android:id="@+id/main_rBtn_user"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:button="@null"
+            android:drawableTop="@drawable/main_user_selector"
+            android:gravity="center_horizontal"
+            android:textSize="12sp"
+            android:text="我的"
+            android:layout_weight="1"/>
+
+    </RadioGroup>
+
+
+</LinearLayout>
