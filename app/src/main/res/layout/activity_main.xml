@@ -11,6 +11,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_weight="1"
+        android:fillViewport="true"
         >
         <com.riven.dell.yunifangdemo.view.MainViewPager
             android:id="@+id/main_viewPager"
@@ -43,6 +44,7 @@
             android:gravity="center_horizontal"
             android:textSize="12sp"
             android:text="首页"
+            android:textColor="#FF1493"
             android:layout_weight="1"/>
 
         <RadioButton
@@ -54,6 +56,7 @@
             android:gravity="center_horizontal"
             android:textSize="12sp"
             android:text="分类"
+            android:textColor="#000"
             android:layout_weight="1"/>
 
         <RadioButton
@@ -65,6 +68,7 @@
             android:gravity="center_horizontal"
             android:textSize="12sp"
             android:text="购物车"
+            android:textColor="#000"
             android:layout_weight="1"/>
 
         <RadioButton
@@ -76,6 +80,7 @@
             android:gravity="center_horizontal"
             android:textSize="12sp"
             android:text="我的"
+            android:textColor="#000"
             android:layout_weight="1"/>
 
     </RadioGroup>

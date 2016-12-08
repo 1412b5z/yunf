@@ -3,6 +3,11 @@ package com.riven.dell.yunifangdemo.activity;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
 
+import com.google.gson.Gson;
+import com.riven.dell.yunifangdemo.bean.RequestData;
+import com.riven.dell.yunifangdemo.interfaces.RequestCallBack;
+import com.riven.dell.yunifangdemo.interfaces.RequestGson;
+import com.riven.dell.yunifangdemo.utils.Api;
 import com.riven.dell.yunifangdemo.utils.HttpUtils;
 
 /**
@@ -18,5 +23,6 @@ public class BaseActivity extends FragmentActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         httpUtils = HttpUtils.getHttpUtils();
+
     }
 }

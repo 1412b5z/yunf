@@ -52,10 +52,15 @@ public class CommonUtils {
     public static String getString(int stringId) {
         return getResources().getString(stringId);
     }
+    /**
+     * color文件中的颜色
+     */
 
+    public static int getColor(int colorId){ return getResources().getColor(colorId); }
     /**
      * 返回drawable操作
      */
+
     public static Drawable getDrawable(int drawableId) {
         return getResources().getDrawable(drawableId);
     }

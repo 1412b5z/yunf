@@ -5,7 +5,7 @@ package com.riven.dell.yunifangdemo.interfaces;
  * @date 2016/12/6 18:51
  */
 
-public interface RequestCallBack {
+public interface RequestCallBack<T>{
     void onSuccess(String response);
     void onFailure(String error);
 }
