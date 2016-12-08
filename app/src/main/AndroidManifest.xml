@@ -19,6 +19,7 @@
         <activity android:name=".activity.GuideActivity"/>
         <activity android:name=".activity.Guide3Activity"/>
         <activity android:name=".activity.Guide2Activity"/>
+        <activity android:name=".activity.WebActivity"/>
     </application>
 
 </manifest>

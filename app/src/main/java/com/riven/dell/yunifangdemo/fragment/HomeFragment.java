@@ -1,5 +1,6 @@
 package com.riven.dell.yunifangdemo.fragment;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
@@ -10,12 +11,15 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.GridView;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.Toast;
 
 import com.riven.dell.yunifangdemo.R;
+import com.riven.dell.yunifangdemo.activity.MainActivity;
+import com.riven.dell.yunifangdemo.activity.WebActivity;
 import com.riven.dell.yunifangdemo.adapter.HomeGridAdapter;
 import com.riven.dell.yunifangdemo.adapter.HomePagerAdapter;
 import com.riven.dell.yunifangdemo.application.MyApplication;
@@ -42,6 +46,7 @@ public class HomeFragment extends Fragment implements RequestGson{
     private ArrayList<Ad1> ad1 ;
     private ArrayList<Ad5> ad5;
     private ArrayList<View> viewsList;
+    private int position = 0;
     private ArrayList<ImageView> pointsList;
     private static final int PAGER_MOVE = 0;
     private int count = 0;
@@ -77,6 +82,7 @@ public class HomeFragment extends Fragment implements RequestGson{
 
             @Override
             public void onPageSelected(int arg0) {
+                position = arg0;
                 for(int i=0;i<pointsList.size();i++){
                     pointsList.get(i).setSelected(false);
                 }
@@ -93,6 +99,7 @@ public class HomeFragment extends Fragment implements RequestGson{
 
             }
         });
+
         handler.sendEmptyMessageDelayed(PAGER_MOVE,5000);
     }
 
@@ -110,6 +117,15 @@ public class HomeFragment extends Fragment implements RequestGson{
             ImageView imageView = (ImageView) v.findViewById(R.id.home_view_img);
             Picasso.with(MyApplication.getContext()).load(ad1.get(i).image).into(imageView);
             imageView.setScaleType(ImageView.ScaleType.FIT_XY);
+            v.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    Intent intent = new Intent(MyApplication.getContext(),WebActivity.class);
+                    intent.putExtra("ad_type_dynamic_data",ad1.get(position).ad_type_dynamic_data);
+                    startActivity(intent);
+                    getActivity().overridePendingTransition(R.anim.out_translate,R.anim.in_translate);
+                }
+            });
             viewsList.add(v);
             ImageView point = new ImageView(MyApplication.getContext());
             point.setImageResource(R.drawable.shape_selector);
@@ -140,6 +156,16 @@ public class HomeFragment extends Fragment implements RequestGson{
     private void initGridView() {
         HomeGridAdapter homeGridAdapter = new HomeGridAdapter(ad5);
         home_gridView.setAdapter(homeGridAdapter);
+        home_gridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                Intent intent = new Intent(MyApplication.getContext(),WebActivity.class);
+                intent.putExtra("ad_type_dynamic_data",ad5.get(i).ad_type_dynamic_data);
+                startActivity(intent);
+                getActivity().overridePendingTransition(R.anim.in_translate,0);
+
+            }
+        });
     }
 
     @Override
