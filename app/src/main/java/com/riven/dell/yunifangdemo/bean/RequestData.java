@@ -13,4 +13,15 @@ public class RequestData {
     public ArrayList<DefaultGoodsList> defaultGoodsList;
     public ArrayList<Subjects> subjects;
     public ActivityInfo activityInfo;
+
+    @Override
+    public String toString() {
+        return "RequestData{" +
+                "ad1=" + ad1 +
+                ", ad5=" + ad5 +
+                ", defaultGoodsList=" + defaultGoodsList +
+                ", subjects=" + subjects +
+                ", activityInfo=" + activityInfo +
+                '}';
+    }
 }

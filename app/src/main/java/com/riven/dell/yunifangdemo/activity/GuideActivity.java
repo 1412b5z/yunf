@@ -26,6 +26,7 @@ public class GuideActivity extends Activity {
             if(msg.what == 0){
                 Intent intent = new Intent(GuideActivity.this,Guide2Activity.class);
                 startActivity(intent);
+                finish();
             }
         }
     };

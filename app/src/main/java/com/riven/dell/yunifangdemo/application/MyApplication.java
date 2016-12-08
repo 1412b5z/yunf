@@ -19,7 +19,7 @@ public class MyApplication extends Application{
     private static Context context;
     private static Handler handler;
     private static int mainThreadId;
-    private HttpUtils httpUtils;
+
 
     @Override
     public void onCreate() {
@@ -30,25 +30,13 @@ public class MyApplication extends Application{
         handler = new Handler();
         //获取主线程的线程号
         mainThreadId = Process.myTid();
-        httpUtils = HttpUtils.getHttpUtils();
-    }
-
-    public void getRequestData(String url, final Class clazz , final RequestGson requestGson ) {
-        httpUtils.getRequest(url, new RequestCallBack() {
-            @Override
-            public void onSuccess(String response) {
-                Gson gson = new Gson();
-                Object obj = gson.fromJson(response, clazz);
-                requestGson.onGsonSuccess(obj);
-            }
-
-            @Override
-            public void onFailure(String error) {
-                requestGson.onGsonFail(error);
-            }
-        });
 
     }
+
+    public static HttpUtils getHttpUtils(){
+        return HttpUtils.getHttpUtils();
+    }
+
 
     /**
      * 获取上下文

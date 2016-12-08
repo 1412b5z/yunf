@@ -76,6 +76,7 @@ public class Guide3Activity extends Activity {
                 if (position == 4) {
                     Intent intent = new Intent(Guide3Activity.this, MainActivity.class);
                     startActivity(intent);
+                    finish();
                 }
             }
 

@@ -7,5 +7,14 @@ package com.riven.dell.yunifangdemo.bean;
 
 public class RequestBean {
     public String msg;
+
     public RequestData data;
+
+    @Override
+    public String toString() {
+        return "RequestBean{" +
+                "msg='" + msg + '\'' +
+                ", data=" + data +
+                '}';
+    }
 }

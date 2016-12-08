@@ -5,8 +5,10 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
+import com.google.gson.Gson;
 import com.riven.dell.yunifangdemo.application.MyApplication;
 import com.riven.dell.yunifangdemo.interfaces.RequestCallBack;
+import com.riven.dell.yunifangdemo.interfaces.RequestGson;
 
 /**
  * @author rivenlee
@@ -48,5 +50,20 @@ public class HttpUtils {
         });
         requestQueue.add(request);
     }
+    public void getRequestData(String url, final Class clazz , final RequestGson requestGson ) {
+        httpUtils.getRequest(url, new RequestCallBack() {
+            @Override
+            public void onSuccess(String response) {
+                Gson gson = new Gson();
+                Object obj = gson.fromJson(response, clazz);
+                requestGson.onGsonSuccess(obj);
+            }
 
+            @Override
+            public void onFailure(String error) {
+                requestGson.onGsonFail(error);
+            }
+        });
+
+    }
 }

@@ -39,6 +39,7 @@ public class Guide2Activity extends Activity {
                     public void onClick(View view) {
                         Intent intent = new Intent(Guide2Activity.this, Guide3Activity.class);
                         startActivity(intent);
+                        finish();
                         return;
                     }
                 });
@@ -46,6 +47,7 @@ public class Guide2Activity extends Activity {
                 if (time == 0) {
                     Intent intent = new Intent(Guide2Activity.this, Guide3Activity.class);
                     startActivity(intent);
+                    finish();
                 }
             }
         }

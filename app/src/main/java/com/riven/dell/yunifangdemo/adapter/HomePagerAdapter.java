@@ -3,7 +3,6 @@ package com.riven.dell.yunifangdemo.adapter;
 import android.support.v4.view.PagerAdapter;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
 
 import java.util.ArrayList;
 
@@ -13,15 +12,15 @@ import java.util.ArrayList;
  */
 
 public class HomePagerAdapter extends PagerAdapter {
-    private ArrayList<ImageView> viewsList;
+    private ArrayList<View> viewsList;
 
-    public HomePagerAdapter(ArrayList<ImageView> viewsList) {
+    public HomePagerAdapter(ArrayList<View> viewsList) {
         this.viewsList = viewsList;
     }
 
     @Override
     public int getCount() {
-        return Integer.MAX_VALUE;
+        return viewsList.size();
     }
 
     @Override
@@ -31,12 +30,12 @@ public class HomePagerAdapter extends PagerAdapter {
 
     @Override
     public void destroyItem(ViewGroup container, int position, Object object) {
-        container.removeView(viewsList.get(position%viewsList.size()));
+        container.removeView(viewsList.get(position));
     }
 
     @Override
     public Object instantiateItem(ViewGroup container, int position) {
-        View view = viewsList.get(position%viewsList.size());
+        View view = viewsList.get(position);
         container.addView(view);
         return view;
     }
