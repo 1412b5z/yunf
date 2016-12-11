@@ -3,43 +3,61 @@
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent"
     >
-    <TextView
-        android:id="@+id/home_title"
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="40dp"
-        android:gravity="center"
-        android:text="御泥坊VIP商城"
-        android:textSize="20sp"
-        android:textColor="#FC6B87"/>
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="210dp">
-        <android.support.v4.view.ViewPager
-            android:id="@+id/home_viewPager"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-        </android.support.v4.view.ViewPager>
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
         <LinearLayout
-            android:id="@+id/ll_points"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:layout_marginTop="180dp"
-            android:layout_marginLeft="170dp"
-            android:gravity="center_horizontal"
+            android:layout_height="match_parent"
 
-            />
-    </RelativeLayout>
+            android:orientation="vertical">
+            <TextView
+                android:id="@+id/home_title"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:gravity="center"
+                android:text="御泥坊VIP商城"
+                android:textSize="20sp"
+                android:textColor="#FC6B87"/>
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="210dp">
+                <android.support.v4.view.ViewPager
+                    android:id="@+id/home_viewPager"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                </android.support.v4.view.ViewPager>
+                <LinearLayout
+                    android:id="@+id/ll_points"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginTop="180dp"
+                    android:layout_marginLeft="170dp"
+                    android:gravity="center_horizontal"
 
-    <GridView
-        android:id="@+id/home_gridView"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:cacheColorHint="#00000000"
-        android:listSelector="#00000000"
-        android:horizontalSpacing="0dp"
-        android:verticalSpacing="8dp"
-        android:numColumns="4"></GridView>
+                    />
+            </RelativeLayout>
+
+            <GridView
+                android:id="@+id/home_gridView"
+                android:layout_width="match_parent"
+                android:layout_height="180dp"
+                android:cacheColorHint="#00000000"
+                android:listSelector="#00000000"
+                android:horizontalSpacing="0dp"
+                android:verticalSpacing="8dp"
+                android:numColumns="4"></GridView>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="#F1F1F1"/>
+            <include layout="@layout/viewpager_gallery"/>
+        </LinearLayout>
+    </ScrollView>
 
 
 

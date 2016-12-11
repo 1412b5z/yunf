@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:gravity="center"
+    android:orientation="vertical">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="10dp"
+        android:background="#F9F9F9"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="30dp"
+        android:gravity="center_vertical"
+        android:text="一  优惠活动  一"
+        android:textColor="#707070"/>
+    <LinearLayout
+        android:id="@+id/mViewPagerBox"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:clipChildren="false">
+        <android.support.v4.view.ViewPager
+            android:id="@+id/home_viewPagerGalley"
+            android:layout_width="250dp"
+            android:layout_height="120dp"
+            android:clipChildren="false"
+            />
+
+    </LinearLayout>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="10dp"
+        android:layout_marginTop="20dp"
+        android:background="#F9F9F9"/>
+
+</LinearLayout>

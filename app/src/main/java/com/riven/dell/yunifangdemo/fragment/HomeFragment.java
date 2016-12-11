@@ -9,6 +9,8 @@ import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
 import android.util.Log;
 import android.view.LayoutInflater;
+import android.view.MotionEvent;
+import android.view.TextureView;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
@@ -22,13 +24,16 @@ import com.riven.dell.yunifangdemo.activity.MainActivity;
 import com.riven.dell.yunifangdemo.activity.WebActivity;
 import com.riven.dell.yunifangdemo.adapter.HomeGridAdapter;
 import com.riven.dell.yunifangdemo.adapter.HomePagerAdapter;
+import com.riven.dell.yunifangdemo.adapter.HomeViewPagerGallery;
 import com.riven.dell.yunifangdemo.application.MyApplication;
+import com.riven.dell.yunifangdemo.bean.ActivityInfoList;
 import com.riven.dell.yunifangdemo.bean.Ad1;
 import com.riven.dell.yunifangdemo.bean.Ad5;
 import com.riven.dell.yunifangdemo.bean.RequestBean;
 import com.riven.dell.yunifangdemo.interfaces.RequestGson;
 import com.riven.dell.yunifangdemo.utils.Api;
 import com.riven.dell.yunifangdemo.utils.CommonUtils;
+import com.riven.dell.yunifangdemo.view.ZoomOutPageTransformer;
 import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
@@ -43,6 +48,7 @@ public class HomeFragment extends Fragment implements RequestGson{
     private View view;
     private ViewPager home_viewPager;
     private GridView home_gridView;
+    private ViewPager home_viewPagerGalley;
     private ArrayList<Ad1> ad1 ;
     private ArrayList<Ad5> ad5;
     private ArrayList<View> viewsList;
@@ -50,6 +56,7 @@ public class HomeFragment extends Fragment implements RequestGson{
     private ArrayList<ImageView> pointsList;
     private static final int PAGER_MOVE = 0;
     private int count = 0;
+    private LinearLayout mViewPagerBox;
     private Handler handler = new Handler(){
         @Override
         public void handleMessage(Message msg) {
@@ -63,7 +70,7 @@ public class HomeFragment extends Fragment implements RequestGson{
             }
         }
     };
-
+    private ArrayList<ActivityInfoList> activityInfoList;
 
 
     @Nullable
@@ -140,17 +147,38 @@ public class HomeFragment extends Fragment implements RequestGson{
     private void initView() {
         home_viewPager = (ViewPager) view.findViewById(R.id.home_viewPager);
         home_gridView = (GridView) view.findViewById(R.id.home_gridView);
+        home_viewPagerGalley = (ViewPager) view.findViewById(R.id.home_viewPagerGalley);
+        mViewPagerBox = (LinearLayout) view.findViewById(R.id.mViewPagerBox);
     }
 
     @Override
     public void onGsonSuccess(Object object) {
-        RequestBean requestBean = (RequestBean)object;
-        Log.d("TAG",requestBean.toString());
-        ad1 = requestBean.data.ad1;
-        ad5 = requestBean.data.ad5;
-        initImgsList();
-        initViewPagerData();
-        initGridView();
+        if(object!=null) {
+            RequestBean requestBean = (RequestBean) object;
+            Log.d("TAG", requestBean.toString());
+            ad1 = requestBean.data.ad1;
+            ad5 = requestBean.data.ad5;
+            initImgsList();
+            initViewPagerData();
+            initGridView();
+            activityInfoList = requestBean.data.activityInfo.activityInfoList;
+            initViewPagerGallery();
+        }
+    }
+
+    private void initViewPagerGallery() {
+
+        HomeViewPagerGallery homeViewPagerGallery = new HomeViewPagerGallery(activityInfoList);
+        home_viewPagerGalley.setAdapter(homeViewPagerGallery);
+        home_viewPagerGalley.setCurrentItem(activityInfoList.size()*50);
+        home_viewPagerGalley.setOffscreenPageLimit(3);
+        home_viewPagerGalley.setPageTransformer(true, new ZoomOutPageTransformer());
+        mViewPagerBox.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View view, MotionEvent motionEvent) {
+                return home_viewPagerGalley.dispatchTouchEvent(motionEvent);
+            }
+        });
     }
 
     private void initGridView() {
@@ -163,14 +191,14 @@ public class HomeFragment extends Fragment implements RequestGson{
                 intent.putExtra("ad_type_dynamic_data",ad5.get(i).ad_type_dynamic_data);
                 startActivity(intent);
                 getActivity().overridePendingTransition(R.anim.in_translate,0);
-
             }
         });
+
     }
 
     @Override
     public void onGsonFail(String error) {
-        Toast.makeText(MyApplication.getContext(),"無網絡連接",Toast.LENGTH_SHORT).show();
+        Toast.makeText(MyApplication.getContext(),"请求数据错误",Toast.LENGTH_SHORT).show();
     }
 
 
