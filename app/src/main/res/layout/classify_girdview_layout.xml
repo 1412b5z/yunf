@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <ImageView
+        android:id="@+id/mximage"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:scaleType="fitXY"
+        android:src="@mipmap/mx" />
+
+    <com.riven.dell.yunifangdemo.view.MyGridView
+        android:id="@+id/mxGrid_View"
+        android:layout_width="fill_parent"
+        android:layout_height="1500dp"
+        android:numColumns="2"
+        android:gravity="center"/>
+
+
+
+
+</LinearLayout>

@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">YuNiFangDemo</string>
+    <string name="price_text2"><b>¥99.90</b></string>
 </resources>

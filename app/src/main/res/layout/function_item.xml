@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <ImageView
+        android:id="@+id/gximage"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:scaleType="fitXY"
+        android:src="@mipmap/gx" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/gximage"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:id="@+id/hydratingImage"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@mipmap/classify_hydrating"
+            android:layout_weight="1"
+            android:scaleType="fitXY"/>
+
+        <ImageView
+            android:id="@+id/soothingImage"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@mipmap/classify_soothing"
+            android:layout_weight="1"
+            android:scaleType="fitXY"/>
+        <ImageView
+            android:id="@+id/control_oilImage"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@mipmap/classify_control_oil"
+            android:layout_weight="1"
+            android:scaleType="fitXY"/>
+        <ImageView
+            android:id="@+id/whiteningImage"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@mipmap/classify_whitening"
+            android:layout_weight="1"
+            android:scaleType="fitXY"/>
+        <ImageView
+            android:id="@+id/firmingImage"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@mipmap/classify_firming"
+            android:layout_weight="1"
+            android:scaleType="fitXY"/>
+    </LinearLayout>
+
+</RelativeLayout>

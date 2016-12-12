@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/classify_layout"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+<ImageView
+    android:id="@+id/FacialImage"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:src="@mipmap/classify_facial_mask"/>
+
+    <ImageView
+        android:id="@+id/BodyImage"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@mipmap/classify_body_lotion"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginRight="18dp"
+        android:layout_marginEnd="18dp" />
+
+    <ImageView
+        android:id="@+id/EmollientImage"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@mipmap/classify_emollient_water"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true" />
+
+    <ImageView
+        android:id="@+id/cleanserImage"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@mipmap/classify_facial_cleanser"
+        android:layout_below="@+id/EmollientImage"
+        android:layout_alignLeft="@+id/EmollientImage"
+        android:layout_alignStart="@+id/EmollientImage"
+        android:layout_marginTop="11dp" />
+
+    <ImageView
+    android:id="@+id/otherImage"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:src="@mipmap/classify_other"
+    android:layout_alignTop="@+id/cleanserImage"
+    android:layout_alignLeft="@+id/BodyImage"
+    android:layout_alignStart="@+id/BodyImage" />
+
+    <ImageView
+        android:id="@+id/kitImage"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@mipmap/classify_kit"
+        android:layout_alignBottom="@+id/FacialImage"
+        android:layout_alignLeft="@+id/cleanserImage"
+        android:layout_alignStart="@+id/cleanserImage"
+        android:layout_alignRight="@+id/otherImage"
+        android:layout_alignEnd="@+id/otherImage"
+        android:scaleType="fitXY"/>
+</RelativeLayout>
