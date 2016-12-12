@@ -200,6 +200,4 @@ public class HomeFragment extends Fragment implements RequestGson{
     public void onGsonFail(String error) {
         Toast.makeText(MyApplication.getContext(),"请求数据错误",Toast.LENGTH_SHORT).show();
     }
-
-
 }
